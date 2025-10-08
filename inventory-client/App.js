@@ -35,9 +35,7 @@ export default function App() {
   const [permission, requestPermission] = useCameraPermissions();
   const [scanned, setScanned] = useState(false);
 
-  // ==================== FUNCIONES DE API ====================
 
-  // LOGIN - Autenticación con JWT
   const handleLogin = async () => {
     if (!username || !password) {
       Alert.alert('Error', 'Por favor ingresa usuario y contraseña');
@@ -77,7 +75,7 @@ export default function App() {
     }
   };
 
-  // CARGAR TODOS LOS PRODUCTOS
+ 
   const loadProducts = async (authToken = token) => {
     try {
       const response = await fetch(`${API_URL}/productos`, {
@@ -168,7 +166,7 @@ export default function App() {
     }
   };
 
-  // MANEJO DE ESCANEO DE CÓDIGO QR
+ 
   const handleBarcodeScanned = ({ data }) => {
     if (!scanned) {
       setScanned(true);
@@ -177,7 +175,7 @@ export default function App() {
     }
   };
 
-  // CERRAR SESIÓN
+  
   const handleLogout = () => {
     Alert.alert(
       'Cerrar Sesión',
@@ -200,9 +198,9 @@ export default function App() {
     );
   };
 
-  // ==================== PANTALLAS ====================
 
-  // PANTALLA DE LOGIN
+
+ 
   if (screen === 'login') {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
@@ -258,7 +256,6 @@ export default function App() {
     );
   }
 
-  // PANTALLA DE SCANNER QR
   if (screen === 'scanner') {
     if (!permission) {
       return (
@@ -338,7 +335,7 @@ export default function App() {
     );
   }
 
-  // PANTALLA PRINCIPAL (HOME)
+  
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <StatusBar barStyle="light-content" backgroundColor="#1a1a2e" />
@@ -369,7 +366,7 @@ export default function App() {
         <Text style={styles.scanButtonText}>Escanear Código QR</Text>
       </TouchableOpacity>
 
-      {/* Producto Seleccionado (desde QR) */}
+      {}
       {selectedProduct && (
         <View style={styles.selectedProduct}>
           <View style={styles.selectedHeader}>
@@ -424,7 +421,7 @@ export default function App() {
         </View>
       )}
 
-      {/* Lista de Productos */}
+      {}
       <View style={styles.listContainer}>
         <View style={styles.listHeader}>
           <Text style={styles.listTitle}>Todos los Productos</Text>
